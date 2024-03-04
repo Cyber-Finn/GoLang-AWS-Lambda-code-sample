@@ -12,4 +12,8 @@ While it's true that the first version of Go is no longer supported by the AWS S
 ## Usage:
 1. Clone and change whatever you need, then zip the app code. 
 2. Create a new aws lambda (from either terraform or the AWS console) and upload the code .zip to it
-3. Create an API Gateway that will call this lambda function, and test
+
+<br>
+The usage here can differ depending on what you'd like to do. If it's hosting an API, you can set up an API Gateway to forward requests to a specific lambda. You could also have your go routine listen to an SQS queue, and then take those inputs and write them to DynamoDB tables, etc.
+<br>
+Remember that Go and AWS create an Event-Driven-Architecture (EDA), where code doesnt run permanently (And shouldn't, for cost reductions). Code is only run in response to an event.
